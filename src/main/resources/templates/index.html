@@ -14,10 +14,9 @@
         <form action="/" method="POST" th:object="${formulario}" enctype="multipart/form-data">
             <div class ="form"> 
                 <label for="img">Select image:</label>
-                <input th:field = "*{img}" type="file" id="img" name="img" accept="image/*">
-                <img id="blah" src="${selected_url}" alt="your image"/>
+                <input type="file" id="img" name="img" accept="image/*">
                 <label for="text"> Select text:</label>
-                <input th:field = "*{text}" type="text" id="texto" name="texto">
+                <input type="text" id="texto" name="texto">
                 <input type="submit">
             </div>
           </form>
