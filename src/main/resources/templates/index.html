@@ -9,8 +9,23 @@
 <body>
     <div class="container">
         <p>hello</p>
-        <p th:text="${key}"></p>
+        <p th:text="${key}">Ok</p>
+
+        <form action="/" method="POST" th:object="${formulario}" enctype="multipart/form-data">
+            <div class ="form"> 
+                <label for="img">Select image:</label>
+                <input th:field = "*{img}" type="file" id="img" name="img" accept="image/*">
+                <img id="blah" src="${selected_url}" alt="your image"/>
+                <label for="text"> Select text:</label>
+                <input th:field = "*{text}" type="text" id="texto" name="texto">
+                <input type="submit">
+            </div>
+          </form>
     </div>
-   
+    <div class = "listado">
+        <tr th:each="user : ${users}">
+            <td th:text = "${user}">Name</td>
+        </tr>
+    </div>
 </body>
 </html>
