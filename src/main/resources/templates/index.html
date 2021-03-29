@@ -7,24 +7,18 @@
     <title>My index</title>
 </head>
 <body>
+    <header th:insert="fragments/header.html"> </header>
     <div class="container">
-        <p>hello</p>
+        <h1>Este es el index</h1>
         <p th:text="${key}">Ok</p>
 
-        <form action="/" method="POST" th:object="${formulario}" enctype="multipart/form-data">
-            <div class ="form"> 
-                <label for="img">Select image:</label>
-                <input type="file" id="img" name="img" accept="image/*">
-                <label for="text"> Select text:</label>
-                <input type="text" id="texto" name="texto">
-                <input type="submit">
-            </div>
-          </form>
-    </div>
+        
     <div class = "listado">
+        <h3>Ejemplo listado mediante codigo java</h3>
         <tr th:each="user : ${users}">
             <td th:text = "${user}">Name</td>
         </tr>
     </div>
+
 </body>
 </html>

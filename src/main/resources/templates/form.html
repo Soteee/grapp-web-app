@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form example</title>
+</head>
+<body>
+    <header th:insert="fragments/header.html"> </header>
+    <div class="container">
+        <h1>Formulario</h1>
+        <form action="/form" method="POST" th:object="${Formulario}">
+            <div class ="form"> 
+                <label for="img">Select image:</label>
+                <input type="file" id="img" name="img" accept="image/*">
+                <br>
+                <label for="text"> Select text:</label>
+                <input th:field="*{text}" type="text" id="texto" name="texto">
+                <p th:if="${#fields.hasErrors('text')}" th:errors="*{name}">Name Error</p>
+                <input type="submit">
+            </div>
+          </form>
+
+          <div class="formResult">
+                <p th:text="${confirmation}">Ok</p>
+          </div>
+    </div>
+</body>
+</html>
