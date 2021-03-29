@@ -1,11 +1,12 @@
 package grapp.grapp;
 
+import java.io.File;
 import javax.validation.constraints.Size;
 
 public class Formulario {
     @Size(min=2,max=10)
     private String text;
-    //private Object img;
+    private File img;
     
     public String getText() {
         return text;
@@ -13,10 +14,10 @@ public class Formulario {
     public void setText(String text) {
         this.text = text;
     }
-    /*public Object getImg() {
+    public File getImg() {
         return img;
     }
-    public void setImg(Object img) {
+    public void setImg(File img) {
         this.img = img;
     }
 
@@ -24,6 +25,6 @@ public class Formulario {
     public String toString() {
         return "Formulario [img=" + img + ", text=" + text + "]";
     }
-    */
+    
 }
 

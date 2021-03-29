@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +10,18 @@
     <title>Form example</title>
 </head>
 <body>
-    <header th:insert="fragments/header.html"> </header>
+    <header th:insert="fragments/header.html"></header>
     <div class="container">
         <h1>Formulario</h1>
-        <form action="/form" method="POST" th:object="${Formulario}">
+        <form action="/form" method="POST" th:object="${formulario}">
             <div class ="form"> 
                 <label for="img">Select image:</label>
-                <input type="file" id="img" name="img" accept="image/*">
+                <input th:field="*{img}" type="file" id="img" name="img" accept="image/*">
                 <br>
                 <label for="text"> Select text:</label>
                 <input th:field="*{text}" type="text" id="texto" name="texto">
-                <p th:if="${#fields.hasErrors('text')}" th:errors="*{name}">Name Error</p>
+                <p th:if="${#fields.hasErrors('text')}" th:errors="*{text}">Name Error</p>
+                <p th:unless="${#fields.hasErrors('text')}"></p>
                 <input type="submit">
             </div>
           </form>
@@ -26,5 +30,7 @@
                 <p th:text="${confirmation}">Ok</p>
           </div>
     </div>
+
+    <footer th:insert="fragments/footer.html"></footer>
 </body>
 </html>
